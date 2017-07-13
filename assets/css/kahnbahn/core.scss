@@ -1,0 +1,27 @@
+@import 'variables';
+
+
+html, body, .kahnbahn-root{
+  width:100%;
+  height:100%;
+  display: block;
+  overflow: auto;
+  background-color: #efefef;
+  padding:0;
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+}
+
+.kahnbahn-root{
+  display: flex;
+  font-size:1.6rem;
+}
+
+a{
+  color:#54acef;
+  text-decoration: none;
+  &:hover{
+    color:#1272BD;
+  }
+}

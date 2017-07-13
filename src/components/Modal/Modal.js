@@ -1,9 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
-
-class Foo extends Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
     // if state is complex
@@ -12,7 +10,7 @@ class Foo extends Component {
 
   // if state is simple
   state = {
-    foo:'bar'
+    Modal:'bar'
   }
 
   static displayName = 'Template';
@@ -36,10 +34,10 @@ class Foo extends Component {
     //const { } = this.props;
 
     return (
-      <div>Foo</div>
+      <div>Modal</div>
     );
   }
 }
 
 
-export default Foo;
+export default Modal;

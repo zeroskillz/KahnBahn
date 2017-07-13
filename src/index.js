@@ -1,5 +1,5 @@
 // static imports
-require('../assets/css/{{PKG_NAME}}/core.scss')
+require('../assets/css/kahnbahn/core.scss')
 
 // js
 import 'babel-polyfill'
@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 
-const root = document.getElementById('{{PKG_NAME}}')
+const root = document.getElementById('kahnbahn')
 
 
 ReactDOM.render(<App/>, root)

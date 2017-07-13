@@ -1,5 +1,5 @@
 // css imports
-require('../assets/css/{{PKG_NAME}}/core.scss')
+require('../assets/css/kahnbahn/core.scss')
 
 // js
 import "babel-polyfill"
@@ -9,7 +9,7 @@ import {AppContainer} from 'react-hot-loader'
 import App from './App'
 
 
-const root = document.getElementById('{{PKG_NAME}}')
+const root = document.getElementById('kahnbahn')
 
 
 ReactDOM.render((

@@ -1,0 +1,52 @@
+.card{
+  flex: 0 0 100%;
+  padding:10px;
+  background-color: #ffffff;
+  margin-bottom:20px;
+  border-radius: 5px;
+  box-shadow:0px 1px 2px rgba(0,0,0,0.3);
+  font-size:1.2rem;
+}
+
+.card-name{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:6px;
+}
+.card-name-text{
+  flex: 1 1 auto;
+}
+.card-name-pivitollink{
+  position: relative;
+  flex:0 0 16px;
+  height:16px;
+  margin-left:10px;
+  &:before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABR0RVh0Q3JlYXRpb24gVGltZQAzLzEvMTT2AEHAAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAABDtJREFUWIXVmTtyG0cQhr9GgYEYkKwCAyQoQg7kQIGpwIkSUuUDUD6ByBOYPIGhE4g8gaAb4AYGEycKDAcKrECCCwkCokwisAOoqh1MLzjoncFyWSoX/SeLnee//ZrugXAPqOom0ALawCawlRk6A26AmYhM77OX1CTWATpGri4WwBT4KCJ/33XSnQiqagt4Bjy6B7EUJsAHEVlUDVxLUFU3gCfAN1+JWIwFMKpSfZagkXtO3r4A5sCVPb3adm1uC9hYs8YnEflQi6Cqbhm51MK1bUlV2wQt5Gx3IiKjOxE0yf2QITclqKVkO6raBboiMlxDdJ0tJ0k2EuRSkivs5b0np6o7qtoDPgO/qOrLHEERmQGXBCfx6Kjqt6U5brOnlB1iAfwqInM/WVWPgXNgO2r+U0S6OZIVewFcxns1ogmtmuT2gbeOHMCeSXQtzDFSknwWv8QqLomXEKtK5GyDETDI7H+qqjtxg6oOVPU0scbMzd2yA+GWoEnPe9hURFJfGOMs075NUH1B7hg4At6o6khVD6Ox7wmairEUViHBlGqzsamAiIyB15nuV6q6b5I8j9q/IzjTQFW75nQf3dxHhRSb5rltN2BaxDhVHa7hOAZOgZ+AnUT/jvV7O4Ug0Z79nhBOrDh6tIFJM0EOVr/oYA3BA2BIUPVb1/eO8AE/Z+a+K+KeiCxUdcKqJtsQVOxtb14n2yBIYQDEQfba2s8T44v+U9dWsndVbTUoi/+qBjmAPdvsjCDNa+AC6BLUmMKFiFzHDRYtvLPsNiknA8mwUoFDEekZQWCt7Y5tbApzVjXabCQG1VEvBImljrd+ZnwuNEHIvmNsN+9A4LCi/8aryzAAXrm2sYjkgjvAF99QSVBELovflrH03ZARZYMvUIqRLkhf59KsOxN06FMOO/uq2ktI8Rh4U7HeJasaKvFJ2eBmaiX78lRM3MbZoEm6V0EuBR9RbpoEz4k9OZfi9zPtYxHpq+qY4DBjEXmpqn8lNqyC3/tLg7Ln7PpZloXsZRY9sfRqj3DOHtn4kzrMrMzwifJVg3S6s1SzHfa9zLpD0k7Ss/ZhDY4d3yAisyahzvB4wu3R1SOvqhPKGTX23rN+f0bH+B2WpYYnOAVo2kE9ZTVp6KhqUbUNCEdW1y1wISJjVU3FQAgZzrmIvFhDcLkfZfVO4daLPyUmPQUQkaGIPCZIpCBTJAO4do9+FbPociDGP0Wy3DASM8q22I5TbxF5DTy2Tc+KuGfPXNJ64AJzCt9Tlt4fy32jL2kRSs4Y2aLJQ1U/UzYDWFPlWeHlbW8en17LQG1S9KreAJ5bCKhCKqwMyZzlVnaWPBf4LX5ZOUmsFPTSKkimFovnDrmt8sbAjyLywuqWmNiGSS5VE5eqyK929WFzu8CRiFxk+mtfffz/Lo+iRR/u9Zsj+TAvMGM82Ctgjwd7ie7xX/4N8S/dctnIjc1oEAAAAABJRU5ErkJggg==');
+    background-color: #54acef;
+    opacity: 0.5;
+    background-size: 16px 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+  &:hover:before{
+    opacity: 1;
+  }
+}
+.card-labels{
+  font-size: 1.2rem;
+  color:#888;
+}
+.card-owners{
+  margin-top:8px;
+}
+.card-owners-item{
+  border-radius: 20px;
+  padding:1px 6px;
+  margin-right:2px;
+  color:#ffffff;
+}
