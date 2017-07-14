@@ -31,7 +31,7 @@ class Card extends Component {
     return (
       <div className="card">
         <div className="card-name">
-          <span className="card-name-text">{data.name}</span>
+          <span className="card-name-text">{data.name} ({data.estimate || 0 }pts)</span>
           <a className="card-name-pivitollink" href={data.url} target="_blank"/>
         </div>
         <div className="card-labels">

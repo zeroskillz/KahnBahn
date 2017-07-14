@@ -35,7 +35,7 @@ class Silo extends Component {
   render () {
     const { title, data } = this.props;
     let size = 0;
-    data.map(d => size += d.estimate)
+    data.map(d => size += (d.estimate ? d.estimate : 0))
     return (
       <div className="silo">
         <div className="silo-title">

@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import DataProvider from './DataProvider';
-
 import Board from './components/Board/Board.js';
-import Silo from './components/Silo/Silo.js'
-
-import Foo from './Foo';
+import Silo from './components/Silo/Silo.js';
+import PivotalData from './utils/PivotalData';
 
 export default class App extends React.Component {
 
@@ -14,18 +10,9 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      data:props.data,
+      pData:null,
       filterName:null,
     }
-
-  }
-
-  static propTypes = {
-    data: PropTypes.object,
-  }
-
-  static defaultProps = {
-    data:DataProvider
   }
 
   _clone = function(item){
@@ -38,33 +25,55 @@ export default class App extends React.Component {
     this.setState({filterName});
   }
 
+  _onDataSuccess = (data) => {
+    console.log(data);
+    this.setState({pData:data})
+  }
+
+  _onDataError = (error) => {
+    console.log(error);
+  }
+
+  componentDidMount(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const pivotalID = urlParams.get('pivotalId')
+    const dataMaker = new PivotalData(this._onDataSuccess, this._onDataError, pivotalID);
+    dataMaker.fetchData();
+  }
 
   render () {
+    const { filterName, pData } = this.state;
+    if(pData === null){
+      return (
+        <h1>Lerding!</h1>
+      )
+    }else{
+      const data = this._clone(this.state.pData);
+      const stories = !filterName ? data.stories : data.stories.filter(story => {
+        let ret = false;
+        story.owners.map( o => {
+          if(o.name === filterName){ret = true;}
+        })
+        return ret;
+      });
 
-    const { filterName } = this.state;
-    const data = this._clone(this.props.data);
-    const stories = !filterName ? data.stories : data.stories.filter(story => {
-      let ret = false;
-      story.owners.map( o => {
-        if(o.name === filterName){ret = true;}
-      })
-      return ret;
-    });
+      const { team, project } = data;
 
-    const { team, project } = data;
+      return (
+        <Board data={project} team={team} activeMember={filterName} onFilter={this._filter}>
+          <Silo title="Unstarted" data={stories.filter( story => story.current_state === "unstarted")} />
+          <Silo title="Started" data={stories.filter( story => story.current_state === "started")} />
+          <Silo title="Testing" data={stories.filter( story => story.current_state === "finished")} />
+          <Silo title="Delivered" data={stories.filter( story => story.current_state === "delivered")} />
+          <Silo title="Done" data={stories.filter( story => story.current_state === "accepted")} />
+        </Board>
+      );
+    }
 
-
-    return (
-      <Board data={project} team={team} activeMember={filterName} onFilter={this._filter}>
-        <Silo title="Unstarted" data={stories.filter( story => story.current_state === "unstarted")} />
-        <Silo title="Started" data={stories.filter( story => story.current_state === "started")} />
-        <Silo title="Testing" data={stories.filter( story => story.current_state === "finished")} />
-        <Silo title="Delivered" data={stories.filter( story => story.current_state === "delivered")} />
-        <Silo title="Done" data={stories.filter( story => story.current_state === "accepted")} />
-      </Board>
-    );
   }
 }
+
+
 
 
 /*
